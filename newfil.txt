@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+typedef enum{FAILURE,SUCCESS}Status_code;
+
+
+//SEATS START
+
+typedef struct u_Seat_tag
+ {
+         int passenger_id;
+         struct u_Seat_tag *next;
+ }Seat_u;
+
+typedef struct m_Seat_tag
+ {
+         int passenger_id;
+         struct m_Seat_tag *next;
+ }Seat_m;
+
+typedef struct l_Seat_tag
+ {
+         int passenger_id;
+         struct l_Seat_tag *next;
+ }Seat_l;
+
+typedef struct sl_Seat_tag
+ {
+         int passenger1_id;
+         int passenger2_id;
+         struct sl_Seat_tag *next;
+ }Seat_sl;
+
+typedef struct su_Seat_tag
+ {
+         int passenger_id;
+         struct su_Seat_tag *next;
+ }Seat_su;
+//SEATS END
+
+//COACH STRUCTURE
+typedef struct Coach_tag
+ {
+         int id;
+         int full;
+         struct Coach_tag *prev;
+         struct Coach_tag *next;
+
+        Seat_u *ulptr;
+        Seat_m *mlptr;
+        Seat_l *llptr;
+        Seat_sl *sllptr;
+        Seat_su *sulptr;
+ }Coach;
+
+
+//TRAIN STRUCTURE
+typedef struct train_tag
+ {
+        int id;
+        Coach *clptr;
+ }train;
+
+//PASSENGER STRUCTURE
+typedef struct passenger_tag
+ {
+       int id;
+       char name[10];
+       char address[10];
+       int ph_no;
+       int age;
+       int train_id;
+       int Coach_id;
+       int seat_no;
+       struct passenger_tag *next;
+       
+ }passenger;
+
+
+
